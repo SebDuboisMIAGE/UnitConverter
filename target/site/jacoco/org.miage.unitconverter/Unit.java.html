@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Unit.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">UnitConverter</a> &gt; <a href="index.source.html" class="el_package">org.miage.unitconverter</a> &gt; <span class="el_source">Unit.java</span></div><h1>Unit.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package org.miage.unitconverter;
+
+import java.math.BigDecimal;
+
+/**
+ *
+ * @author MORIN
+ */
+public class Unit {
+    
+    private String name;
+    private BigDecimal coef;
+    private BigDecimal decalage;
+    private boolean reference;
+
+<span class="fc" id="L22">    public Unit(String name, BigDecimal coef, Boolean reference) {</span>
+<span class="fc" id="L23">        this.name = name.toUpperCase();</span>
+<span class="fc" id="L24">        this.coef = coef;</span>
+<span class="fc" id="L25">        this.decalage = BigDecimal.ZERO;</span>
+<span class="fc" id="L26">        this.reference = reference;</span>
+<span class="fc" id="L27">    }</span>
+    
+<span class="nc" id="L29">    public Unit(String name, BigDecimal coef, BigDecimal decalage, Boolean reference) {</span>
+<span class="nc" id="L30">        this.name = name.toUpperCase();</span>
+<span class="nc" id="L31">        this.coef = coef;</span>
+<span class="nc" id="L32">        this.decalage = decalage;</span>
+<span class="nc" id="L33">        this.reference = reference;</span>
+<span class="nc" id="L34">    }</span>
+
+    public BigDecimal getDecalage() {
+<span class="fc" id="L37">        return decalage;</span>
+    }
+
+    public void setDecalage(BigDecimal decalage) {
+<span class="fc" id="L41">        this.decalage = decalage;</span>
+<span class="fc" id="L42">    }</span>
+
+    public String getName() {
+<span class="fc" id="L45">        return name;</span>
+    }
+
+    public void setName(String name) {
+<span class="fc" id="L49">        this.name = name.toUpperCase();</span>
+<span class="fc" id="L50">    }</span>
+
+    public BigDecimal getCoef() {
+<span class="fc" id="L53">        return coef;</span>
+    }
+
+    public void setCoef(BigDecimal coef) {
+<span class="fc" id="L57">        this.coef = coef;</span>
+<span class="fc" id="L58">    }</span>
+
+    public Boolean isReference() {
+<span class="fc" id="L61">        return reference;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.1.201405082137</span></div></body></html>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Converter.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">UnitConverter</a> &gt; <a href="index.source.html" class="el_package">org.miage.unitconverter</a> &gt; <span class="el_source">Converter.java</span></div><h1>Converter.java</h1><pre class="source lang-java linenums">package org.miage.unitconverter;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author Sébastien
+ */
+import java.math.BigDecimal;
+
+
+<span class="fc" id="L16">public class Converter {</span>
+
+    
+    public BigDecimal convert(String startUnit, BigDecimal in, Type type, String endUnit){
+<span class="pc bpc" id="L20" title="1 of 4 branches missed.">        if (type.isInList(startUnit) != null &amp;&amp; type.isInList(endUnit) != null){</span>
+<span class="fc bfc" id="L21" title="All 2 branches covered.">            if (!in.equals(BigDecimal.ZERO)){//TODO Attention si on fait les degrés celcius</span>
+<span class="fc" id="L22">                return convertReferenceToOut(endUnit, type, convertInToReference(startUnit, type, in));</span>
+            }            
+        }
+<span class="fc" id="L25">        return null;       </span>
+    }
+    
+    public BigDecimal convertInToReference(String startUnit, Type type, BigDecimal in){
+<span class="pc bpc" id="L29" title="2 of 4 branches missed.">        if(type != null &amp;&amp; type.isInList(startUnit) != null){</span>
+<span class="fc" id="L30">            return (in.add(type.isInList(startUnit).getDecalage()).divide(type.isInList(startUnit).getCoef()));</span>
+        }
+<span class="nc" id="L32">        return null;</span>
+    }
+    
+    public BigDecimal convertReferenceToOut(String endUnit, Type type,  BigDecimal inToRef){
+<span class="fc" id="L36">        return type.isInList(endUnit).getCoef().multiply(inToRef.add(type.isInList(endUnit).getDecalage()));</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.1.201405082137</span></div></body></html>
